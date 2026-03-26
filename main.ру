@@ -1,5 +1,3 @@
-from datetime import datetime
-
 digits = {
     "0": [" *** ", "*   *", "*   *", "*   *", " *** "],
     "1": ["  *  ", " **  ", "  *  ", "  *  ", " *** "],
@@ -13,9 +11,9 @@ digits = {
     "9": [" *** ", "*   *", " ****", "    *", " *** "],
 }
 
-def print_date(date_str):
+def print_date(date):
     rows = [""] * 5
-    for char in date_str:
+    for char in date:
         if char == " ":
             for i in range(5):
                 rows[i] += "   "
@@ -24,18 +22,5 @@ def print_date(date_str):
                 rows[i] += digits[char] + " "
     print("\n".join(rows))
 
-day = int(input("Введите день: "))
-month = int(input("Введите месяц: "))
-year = int(input("Введите год: "))
-
-date = datetime(year, month, day)
-
-print("День недели:", date.strftime("%A"))
-print("Високосный год:", "Да" if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) else "Нет")
-
-today = datetime.today()
-age = today.year - year - ((today.month, today.day) < (month, day))
-print("Возраст:", age)
-
-print("\nДата рождения:")
-print_date(f"{day:02d} {month:02d} {year}")
+date = "29 03 2000"
+print_date(date)
