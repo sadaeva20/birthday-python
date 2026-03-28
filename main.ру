@@ -19,7 +19,7 @@ def print_date(date):
                 rows[i] += "   "
         else:
             for i in range(5):
-                rows[i] += digits[char] + " "
+                rows[i] += digits[char][i] + " "
     print("\n".join(rows))
 
 date = "29 03 2000"
